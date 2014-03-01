@@ -72,6 +72,12 @@ class Application(userDao: UserDao) extends Controller with Security {
       }.getOrElse(Future.successful(BadRequest("invalid json")))
   }
 
+  def logout = Action { implicit request =>
+      request.headers.get(AuthTokenHeader) map { token =>
+        Ok.discardingToken(token)
+      } getOrElse BadRequest(Json.obj("err" -> "No Token"))
+    }
+
   def register() = Action.async(parse.json) {
     request =>
       request.body.validate[Login].map {

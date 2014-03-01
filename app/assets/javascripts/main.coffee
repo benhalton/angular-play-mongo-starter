@@ -89,11 +89,18 @@ app.factory("UserService", ["$http", ($http) ->
 
     login = (credentials, successCallback, failureCallback) ->
 
-        $http.post("api/login", credentials).success((response) ->
-            user.isLoggedIn = true
-            user.permissions = 8
-            successCallback()
-        ).error failureCallback
+      $http.post("api/login", credentials).success((response) ->
+        user.isLoggedIn = true
+        user.permissions = 8
+        successCallback()
+      ).error failureCallback
+
+    logout = () ->
+      $http.get("api/logout").success((response) ->
+        console.log "logging you out"
+        user.isLoggedIn = false
+        user.permissions = 0
+      )
 
     register = (credentials) ->
         $http.post("api/register", credentials).success (response) ->
@@ -106,6 +113,7 @@ app.factory("UserService", ["$http", ($http) ->
         isLoggedIn: false
         permissions: 0
         login: login
+        logout: logout
         register: register
         checkCredentials: checkCredentials
 ])

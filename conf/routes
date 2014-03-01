@@ -9,6 +9,7 @@ POST    /api/notes		      @controllers.NotesController.create
 GET     /api/notes/:id		  @controllers.NotesController.show(id: String)
 
 POST    /api/login            @controllers.Application.login
+GET    /api/logout            @controllers.Application.logout
 POST    /api/register            @controllers.Application.register
 
 GET /api/checkCredentials      @controllers.Application.checkCredentials
