@@ -23,14 +23,14 @@
                     <label for="username" class="control-label col-sm-2">Username</label>
                     <div class="col-sm-4">
                         <input type="email" id="username" name="username" data-ng-model="credentials.username" class="form-control" placeholder="Username" required >
-                        <span ng-show="(loginForm.username.$dirty || submitted) && loginForm.username.$error.required">Tell us your email.</span>
+                        <span ng-show="loginForm.username.$dirty && loginForm.username.$error.required">Tell us your email.</span>
                         <span ng-show="loginForm.username.$error.email">This is not a valid email.</span>
                     </div>
 
                     <label for="password" class="control-label col-sm-2">Password</label>
                     <div class="col-sm-4">
                         <input id="password" name="password" data-ng-model="credentials.password" class="form-control" placeholder="Password" type="password" required >
-                        <span ng-show="(loginForm.password.$dirty || submitted) && loginForm.password.$error.required">Tell us your password.</span>
+                        <span ng-show="loginForm.password.$dirty && loginForm.password.$error.required">Tell us your password.</span>
                     </div>
                 </div>
 

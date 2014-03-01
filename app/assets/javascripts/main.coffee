@@ -62,8 +62,6 @@ app.controller("HomeCtrl", ["$scope", "$http", "UserService", ($scope, $http, Us
   $scope.login = (credentialsAreValid) ->
     if credentialsAreValid
       UserService.login $scope.credentials, (() -> $scope.loginFailure = false), () -> $scope.loginFailure = true
-    else
-      $scope.submitted = true
 
   $scope.register = () -> UserService.register $scope.credentials
 ])
