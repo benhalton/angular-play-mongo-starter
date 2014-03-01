@@ -1,4 +1,4 @@
-name := "wset-sat"
+name := "angular-play-mongo-starter"
 
 version := "1.0-SNAPSHOT"
 
