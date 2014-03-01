@@ -15,7 +15,7 @@ module.exports = function (config) {
             'public/third/angularjs/angular-resource.min.js',
             'public/third/angularjs/angular-route.min.js',
             'public/third/angularjs/angular-cookies.min.js',
-            'app/assets/javascripts/**/*.js',
+            'app/assets/javascripts/**/*.coffee',
             'test/javascript/**/*.js'
         ],
 
