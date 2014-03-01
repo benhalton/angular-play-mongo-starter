@@ -1,0 +1,20 @@
+GET     /                           @controllers.Application.index(any = "none")
+
+# Play routes serving HTML to AngularJS start with /views
+GET     /views/*any                 @controllers.Application.loadPublicHTML(any)
+#GET     /views/*any                 controllers.Assets.at(path="/public/html", any + ".html")
+
+GET     /api/notes            @controllers.NotesController.list
+POST    /api/notes		      @controllers.NotesController.create
+GET     /api/notes/:id		  @controllers.NotesController.show(id: String)
+
+POST    /api/login            @controllers.Application.login
+POST    /api/register            @controllers.Application.register
+
+GET /api/checkCredentials      @controllers.Application.checkCredentials
+
+# Map static resources from the /public folder to the /assets URL path
+GET     /assets/*file               controllers.Assets.at(path="/public", file)
+
+# Redirect all unknown routes to the index page
+GET     /*any						@controllers.Application.index(any)

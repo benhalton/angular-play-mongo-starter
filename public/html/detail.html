@@ -1,0 +1,62 @@
+<div class="page-header">
+    <h1>New Note</h1>
+
+
+    <form name="noteForm" class="form-horizontal" role="form">
+        <div class="form-group">
+            <label for="wine-name" class="control-label col-sm-2">Wine Name</label>
+            <div class="col-sm-4">
+                <input type="text" id="wine-name" data-ng-model="note.wine.name" class="form-control" placeholder="Wine Name">
+            </div>
+
+            <label for="wine-vintage" class="control-label col-sm-2">Vintage</label>
+            <div class="col-sm-4">
+                <input type="text" id="wine-vintage" data-ng-model="note.wine.vintage" class="form-control" placeholder="Wine Vintage">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="note" class="control-label col-sm-2">Note</label>
+            <div class="col-sm-offset-2 col-sm-10">
+                <textarea id="note" data-ng-model="note.note" class="form-control" rows="3"></textarea>
+            </div>
+        </div>
+    </form>
+
+    <button data-ng-click="save()" class="btn btn-primary">Save</button>
+</div>
+
+<!--<form name="detailForm" role="form" class="form-horizontal">
+<fieldset>
+	<div class="control-group">
+		<label class="control-label" for="firstname">First Name</label>
+		<input type="text" class="form-control" id="firstname" name="firstname" data-ng-model="celebrity.name.first" placeholder="Enter first name" required>
+		<span data-ng-show="detailForm.firstname.$error.required" class="help-inline">Required</span>
+	</div>
+
+	<div class="control-group">
+		<label class="control-label" for="lastname">Last Name</label>
+		<input type="text" class="form-control" id="lastname" name="lastname" data-ng-model="celebrity.name.last" placeholder="Enter last name" required>
+		<span data-ng-show="detailForm.lastname.$error.required" class="help-inline">Required</span>
+	</div>
+
+	<div class="control-group">
+		<label class="control-label" for="website">Website</label>
+		<input type="url" class="form-control" id="website" name="website" data-ng-model="celebrity.website" placeholder="Enter website" required>
+		<span data-ng-show="detailForm.website.$error.required" class="help-inline">Required</span>
+		<span data-ng-show="detailForm.website.$error.url" class="help-inline">Not a URL</span>
+	</div>
+
+	<div class="control-group">
+		<label class="control-label" for="bio">Bio</label>
+		<textarea type="text" class="form-control" id="bio" name="bio" data-ng-model="celebrity.bio" placeholder="Enter bio"></textarea>
+	</div>
+
+	<br />
+
+
+	<button data-ng-click="go('/')" class="btn btn-default">Cancel</button>
+
+	<button data-ng-click="delete()" data-ng-show="celebrity.id.$oid" class="btn btn-danger">Delete</button>
+</fieldset>
+</form>-->

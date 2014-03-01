@@ -1,0 +1,64 @@
+    <div class="jumbotron">
+        <h2>WSET Systematic Approach to Tasting</h2>
+        <p>Create notes blah blah blah</p>
+        <p><a class="btn btn-primary btn-lg" role="button">Learn more &raquo;</a></p>
+    </div>
+
+    <div class="container">
+      <!-- Example row of columns -->
+      <div class="row">
+        <div class="col-md-4">
+          <h2>Heading</h2>
+          <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+          <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+        </div>
+        <div class="col-md-4">
+          <h2>Heading</h2>
+          <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+          <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+       </div>
+        <div class="col-md-4">
+            <form name="loginForm" class="form-horizontal" role="form" novalidate>
+                <div class="form-group">
+                    <label for="username" class="control-label col-sm-2">Username</label>
+                    <div class="col-sm-4">
+                        <input type="email" id="username" name="username" data-ng-model="credentials.username" class="form-control" placeholder="Username" required >
+                        <span ng-show="(loginForm.username.$dirty || submitted) && loginForm.username.$error.required">Tell us your email.</span>
+                        <span ng-show="loginForm.username.$error.email">This is not a valid email.</span>
+                    </div>
+
+                    <label for="password" class="control-label col-sm-2">Password</label>
+                    <div class="col-sm-4">
+                        <input id="password" name="password" data-ng-model="credentials.password" class="form-control" placeholder="Password" type="password" required >
+                        <span ng-show="(loginForm.password.$dirty || submitted) && loginForm.password.$error.required">Tell us your password.</span>
+                    </div>
+                </div>
+
+            </form>
+            <div id="errorMessage" data-ng-show="loginFailure">Error!</div>
+
+            <button data-ng-click="login(loginForm.$valid)" class="btn btn-primary">Login</button>
+
+            <form name="registerForm" class="form-horizontal" role="form" novalidate>
+                <div class="form-group">
+                    <label for="username" class="control-label col-sm-2">Username</label>
+                    <div class="col-sm-4">
+                        <input type="text" id="r_username" data-ng-model="credentials.username" class="form-control" placeholder="Username">
+                    </div>
+
+                    <label for="password" class="control-label col-sm-2">Password</label>
+                    <div class="col-sm-4">
+                        <input type="text" id="r_password" data-ng-model="credentials.password" class="form-control" placeholder="Password">
+                    </div>
+                </div>
+
+            </form>
+
+            <button data-ng-click="register()" class="btn btn-primary">Register</button>
+        </div>
+      </div>
+
+      <hr>
+
+
+    </div> <!-- /container -->

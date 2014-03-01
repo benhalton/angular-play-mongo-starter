@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+@import play.api.Play.current
+<html data-ng-app="wset-sat-app" data-ng-controller="AppCtrl">
+<head>
+	<meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+	<title>WSET Systematic Approach to Tasting</title>
+	<link rel="stylesheet" media="screen" href="@routes.Assets.at("third/bootstrap/css/bootstrap.min.css")">
+	<link rel="stylesheet" media="screen" href="@routes.Assets.at("third/bootstrap/css/bootstrap-theme.min.css")">
+	<link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/wset-sat.min.css")">
+	<link rel="shortcut icon" type="image/png" href="@routes.Assets.at("images/favicon.png")">
+</head>
+<body>
+<!-- Wrap all page content here -->
+    <div id="wrap">
+
+      <!-- Fixed navbar -->
+      <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+        <div class="container">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#" data-ng-click="go('/')">WSET-SAT</a>
+          </div>
+          <div class="collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+              <li class="active"><a href="#" data-ng-click="go('/')">Home</a></li>
+              <li data-ng-show="user.isLoggedIn"><a href="#" data-ng-click="go('/notes')">My Notes</a></li>
+              <li><a id="contact-tab" href="#" data-ng-click="go('/contact')">Contact</a></li>
+              <li class="dropdown" data-ng-show="user.isLoggedIn">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Create Note<b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                  <li><a href="#" data-ng-click="go('/notes/new/lvl2')">WSET Level 2</a></li>
+                  <li><a href="#" data-ng-click="go('/notes/new/lvl3')">WSET Level 3</a></li>
+                  <li><a href="#" data-ng-click="go('/notes/new/lvl4')">WSET Level 4 (Diploma)</a></li>
+                  <li class="divider"></li>
+                  <li class="dropdown-header">Nav header</li>
+                  <li><a href="#">Separated link</a></li>
+                  <li><a href="#">One more separated link</a></li>
+                </ul>
+              </li>
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+
+      <!-- Begin page content -->
+      <div class="container">
+            <div data-ng-view></div>
+      </div>
+    </div>
+
+    <div id="footer">
+      <div class="container">
+        <p class="text-muted"><a href="http://www.winosoft.co.uk">&copy; Winosoft</a></p>
+      </div>
+    </div>
+
+	<script src="@routes.Assets.at("third/jquery/jquery-1.11.0.min.js")" type="text/javascript"></script>
+	<script src="@routes.Assets.at("third/bootstrap/js/bootstrap.min.js")" type="text/javascript"></script>
+	<script src="@routes.Assets.at("third/angularjs/angular.min.js")" type="text/javascript"></script>
+	<script src="@routes.Assets.at("third/angularjs/angular-resource.min.js")" type="text/javascript"></script>
+	<script src="@routes.Assets.at("third/angularjs/angular-route.min.js")" type="text/javascript"></script>
+	<script src="@routes.Assets.at("third/angularjs/angular-cookies.min.js")" type="text/javascript"></script>
+	@defining(if(play.api.Play.isProd) ".min" else "" ) { fileExt =>
+        <script src="@routes.Assets.at("javascripts/main" + fileExt + ".js")" type="text/javascript"></script>
+    }
+</body>
+</html>
