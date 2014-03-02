@@ -29,4 +29,3 @@ class ApplicationControllerSpec extends PlaySpecification with Mockito with Resu
   
 
 }
-- 
