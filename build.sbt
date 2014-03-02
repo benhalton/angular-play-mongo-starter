@@ -7,10 +7,11 @@ libraryDependencies ++= Seq(
   filters,
   "org.reactivemongo" %% "reactivemongo" % "0.10.0",
   "org.reactivemongo" %% "play2-reactivemongo" % "0.10.0",
-  "de.flapdoodle.embed" % "de.flapdoodle.embed.mongo" % "1.41",
   "org.springframework.scala" % "spring-scala_2.10" % "1.0.0.RC1",
-  "com.github.detro.ghostdriver" % "phantomjsdriver" % "1.1.0",
-  "org.mindrot" % "jbcrypt" % "0.3m"
+  "org.mindrot" % "jbcrypt" % "0.3m",
+  "org.mockito" % "mockito-core" % "1.9.5" % "test",
+  "com.github.detro.ghostdriver" % "phantomjsdriver" % "1.1.0" % "test",
+  "de.flapdoodle.embed" % "de.flapdoodle.embed.mongo" % "1.41" % "test"
   )
 
 resolvers ++= Seq(

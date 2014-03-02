@@ -62,12 +62,15 @@ class Application(userDao: UserDao) extends Controller with Security {
       request.body.validate[Login].map {
         login =>
           userDao.findByUsername(login.username).map {
-            user =>
-              if(BCrypt.checkpw(login.password, user.get.password)) {
-                Ok(Json.toJson(user.get)).withToken(randomUUID().toString -> user.get.username)
-              } else {
-                NotFound
-              }
+            user => user match {
+              case Some(user) =>
+                if(BCrypt.checkpw(login.password, user.password)) {
+                  Ok(Json.toJson(user)).withToken(randomUUID().toString -> user.username)
+                } else {
+                  NotFound
+                }
+              case None => NotFound
+            }
           }
       }.getOrElse(Future.successful(BadRequest("invalid json")))
   }
@@ -92,6 +95,10 @@ class Application(userDao: UserDao) extends Controller with Security {
 
   def checkCredentials() = HasToken() { token => userId => implicit request =>
     Ok(Json.obj("ok"->"ok"))
+  }
+
+  def foo = Action {
+    Ok
   }
 
 }
