@@ -1,4 +1,18 @@
-This is your new Play application
-=====================================
+An app to help you get started with AngularJS, Play! Scala, and MongoDB.
 
-This file will be packaged with your application, when using `play dist`.
+The whole app (including the Angular stuff) can be built, tested and deployed within the Play! lifecycle.
+This makes it easy to push it up to Heroku or similar. It also makes it easy for non-UI guys (like me) to get started.
+
+I am trying to keep this up to date by porting over changes to a real app I am working on so may be a bit behind here.
+
+Features:
+
+* examples of Javascript unit test, server side integration / browser tests
+* jsTest task added to build to allow running of Javascript tests using Karma/Jasmine (by default assumes karma/phantomjs installed globally)
+
+
+I have used various resources from all over the place to put this together, some of those I can remember include:
+
+* https://github.com/mariussoutier/PlayBasics/tree/master/AngularJS-Auth
+* http://blog.brunoscopelliti.com/tag/angularjs
+
