@@ -5,7 +5,7 @@ import org.openqa.selenium.firefox.FirefoxDriver
 import org.openqa.selenium.htmlunit.HtmlUnitDriver
 import org.openqa.selenium.phantomjs.PhantomJSDriver
 
-class BrowserSpecification extends Specification {
+trait BrowserSpecification extends Specification {
 
   lazy val FIREFOX = classOf[FirefoxDriver]
   lazy val HTMLUNIT = classOf[HtmlUnitDriver]
