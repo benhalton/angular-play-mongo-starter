@@ -7,7 +7,8 @@ I am trying to keep this up to date by porting over changes to a real app I am w
 
 Features:
 
-* examples of Javascript unit test, server side integration / browser tests
+* Dependency Injection using Spring Scala, DI of controllers
+* examples of Javascript unit test, Controller spec,  server side integration / browser tests
 * jsTest task added to build to allow running of Javascript tests using Karma/Jasmine (by default assumes karma/phantomjs installed globally)
 
 
