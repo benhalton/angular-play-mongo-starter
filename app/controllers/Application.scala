@@ -14,6 +14,7 @@ import scala.concurrent.ExecutionContext.Implicits.global
 
 import java.util.UUID.randomUUID
 import org.mindrot.jbcrypt.BCrypt
+import service.UserService
 
 trait Security { self: Controller =>
 
@@ -35,7 +36,7 @@ trait Security { self: Controller =>
     }
 }
 
-class Application(userDao: UserDao) extends Controller with Security {
+class Application(userService: UserService) extends Controller with Security {
 
   lazy val CacheExpiration = app.configuration.getInt("cache.expiration").getOrElse(60 * 2)
 
@@ -61,10 +62,10 @@ class Application(userDao: UserDao) extends Controller with Security {
     implicit request =>
       request.body.validate[Login].map {
         login =>
-          userDao.findByUsername(login.username).map {
+          userService.findByUsername(login.username).map {
             user => user match {
               case Some(user) =>
-                if(BCrypt.checkpw(login.password, user.password)) {
+                if(userService.checkPassword(login.password, user.password)) {
                   Ok(Json.toJson(user)).withToken(randomUUID().toString -> user.username)
                 } else {
                   NotFound
@@ -86,7 +87,7 @@ class Application(userDao: UserDao) extends Controller with Security {
       request.body.validate[Login].map {
         login  =>
           val user: User = User(login.username, BCrypt.hashpw(login.password, BCrypt.gensalt))
-          userDao.insert(user).map {
+          userService.insert(user).map {
             lastError =>
               Created.withToken(randomUUID().toString -> user.username)
           }
@@ -95,10 +96,6 @@ class Application(userDao: UserDao) extends Controller with Security {
 
   def checkCredentials() = HasToken() { token => userId => implicit request =>
     Ok(Json.obj("ok"->"ok"))
-  }
-
-  def foo = Action {
-    Ok
   }
 
 }
