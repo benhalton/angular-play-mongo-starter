@@ -15,7 +15,7 @@ Features:
 * angular validation
 * Dependency Injection using Spring Scala, DI of controllers
 * examples of Javascript unit test, Controller spec,  server side integration / browser tests
-* jsTest task added to build to allow running of Javascript tests using Karma/Jasmine (by default assumes karma/phantomjs installed globally)
+* jsTest task added to build to allow running of Javascript tests using Karma/Jasmine 
 
 
 I have used various resources from all over the place to put this together, some of those I can remember include:
