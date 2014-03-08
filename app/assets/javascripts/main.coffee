@@ -6,6 +6,14 @@ app = angular.module("wset-sat-app", ["ngResource", "ngRoute", "ngCookies"])
                 templateUrl: "/views/home"
                 controller: "HomeCtrl"
                 isPublic: true
+            ).when("/login",
+                templateUrl: "views/login"
+                controller: "LoginCtrl"
+                isPublic: true
+            ).when("/register",
+                templateUrl: "views/register"
+                controller: "RegisterCtrl"
+                isPublic: true
             ).when("/notes",
                 templateUrl: "/views/list"
                 controller: "ListCtrl"
@@ -55,15 +63,7 @@ app.controller("AppCtrl", ["$scope", "$location", "UserService", ($scope, $locat
 ])
 
 app.controller("HomeCtrl", ["$scope", "$http", "UserService", ($scope, $http, UserService) ->
-  $scope.loginFailure = false
 
-  $scope.$watch "credentials", ((newValue, oldValue) -> $scope.loginFailure = false), true
-
-  $scope.login = (credentialsAreValid) ->
-    if credentialsAreValid
-      UserService.login $scope.credentials, (() -> $scope.loginFailure = false), () -> $scope.loginFailure = true
-
-  $scope.register = () -> UserService.register $scope.credentials
 ])
 
 app.controller("ListCtrl", ["$scope", "$http", ($scope, $http) ->
@@ -72,6 +72,25 @@ app.controller("ListCtrl", ["$scope", "$http", ($scope, $http) ->
 
 app.controller("ContactCtrl", ["$scope", ($scope) ->
 
+])
+
+app.controller("LoginCtrl", ["$scope", "UserService", "$timeout", ($scope, UserService, $timeout) ->
+   $scope.loginFailure = false
+
+   $scope.$watch "credentials", ((newValue, oldValue) -> $scope.loginFailure = false), true
+
+   $scope.login = (credentialsAreValid) ->
+     if credentialsAreValid
+       UserService.login $scope.credentials,
+         (() ->
+           $scope.loginFailure = false
+           $timeout () -> $scope.go '/home'
+         ),
+         () -> $scope.loginFailure = true
+])
+
+app.controller("RegisterCtrl", ["$scope", "UserService", ($scope, UserService) ->
+  $scope.register = () -> UserService.register $scope.credentials
 ])
 
 app.controller("CreateCtrl", ["$scope", "$routeParams", "$resource", "$timeout",  ($scope, $routeParams, $resource, $timeout) ->

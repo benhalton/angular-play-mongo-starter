@@ -1,0 +1,33 @@
+<div class="page-header">
+    <h1>Login</h1>
+</div>
+
+<form name="loginForm" class="form-horizontal" role="form" novalidate>
+    <div class="form-group">
+        <label for="username" class="control-label col-sm-2">Username</label>
+
+        <div class="col-sm-4">
+            <input type="email" id="username" name="username" data-ng-model="credentials.username" class="form-control" placeholder="Username" required>
+        </div>
+        <div class="col-sm-6" ng-show="loginForm.username.$dirty && loginForm.username.$error.required">Tell us your email.</div>
+        <div class="col-sm-6" ng-show="loginForm.username.$error.email">This is not a valid email.</div>
+    </div>
+    <div class="form-group">
+        <label for="password" class="control-label col-sm-2">Password</label>
+
+        <div class="col-sm-4">
+            <input id="password" name="password" data-ng-model="credentials.password" class="form-control" placeholder="Password" type="password" required>
+        </div>
+        <div class="col-sm-6" ng-show="loginForm.password.$dirty && loginForm.password.$error.required">Tell us your password.</div>
+    </div>
+    <div class="form-group">
+        <div id="errorMessage" data-ng-show="loginFailure" class="col-sm-offset-2 col-sm-10">That combination of username and password does not match a user account. Please try again or register</div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+            <button data-ng-click="login(loginForm.$valid)" ng-disabled="loginForm.$invalid" class="btn btn-primary">Login</button>
+        </div>
+    </div>
+</form>
+
