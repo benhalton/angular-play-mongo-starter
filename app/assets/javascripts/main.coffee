@@ -57,9 +57,12 @@ app = angular.module("wset-sat-app", ["ngResource", "ngRoute", "ngCookies"])
         ])
 
 #the global controller
-app.controller("AppCtrl", ["$scope", "$location", "UserService", ($scope, $location, UserService) ->
+app.controller("AppCtrl", ["$scope", "$location", "$window", "UserService", ($scope, $location, $window, UserService) ->
     $scope.go = (path) -> $location.path(path)
     $scope.user = UserService
+    $scope.$on('$viewContentLoaded', (event) ->
+      $window.ga 'send', 'pageview', {'page': $location.path()}
+    )
 ])
 
 app.controller("HomeCtrl", ["$scope", "$http", "UserService", ($scope, $http, UserService) ->
