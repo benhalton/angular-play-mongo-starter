@@ -1,5 +1,5 @@
 "use strict"
-app = angular.module("wset-sat-app", ["ngResource", "ngRoute", "ngCookies"])
+app = angular.module("angular-play-mongo", ["ngResource", "ngRoute", "ngCookies"])
         .config(["$routeProvider", ($routeProvider) ->
             $routeProvider.when("/",
                 templateUrl: "/views/home"
