@@ -1,11 +1,34 @@
 {
-    "name": "angular_play_mongo_starter_test",
-    "version": "0.0.1",
-    "engines": {
-        "node": "0.10.0"
-    },
-    "dependencies":{
-        "phantomjs": "1.9.7-1",
-        "karma": "0.10.9"
-    }
+  "name": "angular-play-mongo-starter",
+  "version": "1.0.0",
+  "description": "wset-sat",
+  "main": "karma.conf.js",
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {
+    "karma-coffee-preprocessor": "^0.2.1",
+    "jasmine-core": "^2.2.0",
+    "karma-phantomjs-launcher": "^0.1.4",
+    "karma": "^0.12.31",
+    "karma-jasmine": "^0.3.5",
+    "phantomjs": "^1.9.15",
+    "karma-cli": "^0.0.4"
+  },
+  "devDependencies": {
+    "coffee-script": "^1.9.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/benhalton/angular-play-mongo-starter.git"
+  },
+  "author": "Ben Halton",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/benhalton/angular-play-mongo-starter/issues"
+  },
+  "homepage": "https://github.com/benhalton/angular-play-mongo-starter"
 }

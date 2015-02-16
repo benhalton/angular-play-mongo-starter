@@ -23,7 +23,7 @@ play.Project.playScalaSettings
 lazy val jsTest = taskKey[Int]("jsTest")
 
 jsTest in Test := {
-  "./karma.sh" !
+  "node_modules/karma-cli/bin/karma start karma.conf.js" !
 }
 
 test := Def.taskDyn {

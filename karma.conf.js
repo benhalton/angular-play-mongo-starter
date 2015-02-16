@@ -9,6 +9,10 @@ module.exports = function (config) {
         // testing framework to use (jasmine/mocha/qunit/...)
         frameworks: ['jasmine'],
 
+        preprocessors: {
+            '**/*.coffee': ['coffee']
+        },
+
         // list of files / patterns to load in the browser
         files: [
             'public/third/angularjs/angular.min.js',
@@ -50,8 +54,9 @@ module.exports = function (config) {
         // if true, it capture browsers, run tests and exit
         singleRun: true ,
 
-        reporters: ['progress']
+        reporters: ['progress'],
 
+        plugins: ['karma-phantomjs-launcher', 'karma-jasmine', 'karma-coffee-preprocessor']
 
     });
 };

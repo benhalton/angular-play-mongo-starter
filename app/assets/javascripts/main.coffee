@@ -1,5 +1,4 @@
 "use strict"
-
 app = angular.module("wset-sat-app", ["ngResource", "ngRoute", "ngCookies"])
         .config(["$routeProvider", ($routeProvider) ->
             $routeProvider.when("/",
