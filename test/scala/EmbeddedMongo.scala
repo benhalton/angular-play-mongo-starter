@@ -13,7 +13,7 @@ trait EmbeddedMongo extends BeforeAfterExample {
   }
 
   def embedMongoDBVersion(): Version = {
-    Version.V2_4_8
+    Version.V2_7_1
   }
 
   def inMemoryMongoDatabase(name: String = "default"): Map[String, String] = {
